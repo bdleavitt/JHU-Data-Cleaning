@@ -52,6 +52,6 @@ head(full_subset2)
 tidy_data <- tidyr::gather(data = full_subset2, key = "measurement", value = "value", 3:88)
 
 # Step #5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-tidy_data2 <- tidy_data %>% group_by(measurement) %>% summarize(avg=mean(value)) %>% print
+tidy_data2 <- tidy_data %>% group_by(measurement, activity) %>% summarize(avg=mean(value)) %>% print
 
 write.table(tidy_data2, file = "../tidy_data.txt", row.names = FALSE)
