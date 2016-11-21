@@ -4,6 +4,7 @@ The purpose of this project is to demonstrate my ability to collect, work with, 
 ## run_analysis.R
 All of the heavy lifting is done in the run_analysis.R file. It uses a combination of methods (dplyr, tidyr, base r methods) to pull together, make tidy and summarize the file. It:
 
+0. Download and extracts the data file, if it doesn't already exist. 
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement.
 3. Uses descriptive activity names to name the activities in the data set

@@ -45,13 +45,14 @@ full_subset <- full_data[, c(TRUE, TRUE, columns)]      # keep first two columns
 activities <- read.table("activity_labels.txt")         # get activity labels
 names(activities) <- c("activity_id", "activity")       # set activity column names
 full_subset2 <- inner_join(activities, full_subset, by="activity_id") # join the datasets
-full_subset2 <- full_subset2[,-1]                                        # drop activity ID column
+full_subset2 <- full_subset2[,-1]                       # drop activity ID column
 head(full_subset2)
 
 ## Step #4: Appropriately labels the data set with descriptive variable names.
-tidy_data <- tidyr::gather(data = full_subset2, key = "measurement", value = "value", 3:88)
+  # Note: completed in step #1 above.
 
 # Step #5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-tidy_data2 <- tidy_data %>% group_by(measurement, activity) %>% summarize(avg=mean(value)) %>% print
+tidy_data <- tidyr::gather(data = full_subset2, key = "measurement", value = "value", 3:88)
+tidy_data2 <- tidy_data %>% group_by(subject_id, activity, measurement) %>% summarize(avg=mean(value)) %>% print
 
 write.table(tidy_data2, file = "../tidy_data.txt", row.names = FALSE)
