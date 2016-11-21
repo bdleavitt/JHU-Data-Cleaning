@@ -1,59 +1,58 @@
 ## CodeBook
 The tidy data set resulting from the run_analysis.R pulls together test and training data and the relevant subject and activity metadata from the UCI HAR Dataset. 
 
-measurement: is factor representing each of the collected sensor values. 
+subject_id: 1-30, reprenting a unique volunteer.
+activity: 1:WALKING; 2:WALKING_UPSTAIRS; 3:WALKING_DOWNSTAIRS; 4:SITTING; 5:STANDING; 6:LAYING
+measurement: is factor representing each of the collected sensor values, in the list below.  
 avg: shows the average of these values for each subject and activity. 
 
+
+[1] "angle(tBodyAccJerkMean),gravityMean)" "angle(tBodyAccMean,gravity)"         
+[3] "angle(tBodyGyroJerkMean,gravityMean)" "angle(tBodyGyroMean,gravityMean)"    
+[5] "angle(X,gravityMean)"                 "angle(Y,gravityMean)"                
+[7] "angle(Z,gravityMean)"                 "fBodyAcc-mean()-X"                   
+[9] "fBodyAcc-mean()-Y"                    "fBodyAcc-mean()-Z"                   
+[11] "fBodyAcc-meanFreq()-X"                "fBodyAcc-meanFreq()-Y"               
+[13] "fBodyAcc-meanFreq()-Z"                "fBodyAcc-std()-X"                    
+[15] "fBodyAcc-std()-Y"                     "fBodyAcc-std()-Z"                    
+[17] "fBodyAccJerk-mean()-X"                "fBodyAccJerk-mean()-Y"               
+[19] "fBodyAccJerk-mean()-Z"                "fBodyAccJerk-meanFreq()-X"           
+[21] "fBodyAccJerk-meanFreq()-Y"            "fBodyAccJerk-meanFreq()-Z"           
+[23] "fBodyAccJerk-std()-X"                 "fBodyAccJerk-std()-Y"                
+[25] "fBodyAccJerk-std()-Z"                 "fBodyAccMag-mean()"                  
+[27] "fBodyAccMag-meanFreq()"               "fBodyAccMag-std()"                   
+[29] "fBodyBodyAccJerkMag-mean()"           "fBodyBodyAccJerkMag-meanFreq()"      
+[31] "fBodyBodyAccJerkMag-std()"            "fBodyBodyGyroJerkMag-mean()"         
+[33] "fBodyBodyGyroJerkMag-meanFreq()"      "fBodyBodyGyroJerkMag-std()"          
+[35] "fBodyBodyGyroMag-mean()"              "fBodyBodyGyroMag-meanFreq()"         
+[37] "fBodyBodyGyroMag-std()"               "fBodyGyro-mean()-X"                  
+[39] "fBodyGyro-mean()-Y"                   "fBodyGyro-mean()-Z"                  
+[41] "fBodyGyro-meanFreq()-X"               "fBodyGyro-meanFreq()-Y"              
+[43] "fBodyGyro-meanFreq()-Z"               "fBodyGyro-std()-X"                   
+[45] "fBodyGyro-std()-Y"                    "fBodyGyro-std()-Z"                   
+[47] "tBodyAcc-mean()-X"                    "tBodyAcc-mean()-Y"                   
+[49] "tBodyAcc-mean()-Z"                    "tBodyAcc-std()-X"                    
+[51] "tBodyAcc-std()-Y"                     "tBodyAcc-std()-Z"                    
+[53] "tBodyAccJerk-mean()-X"                "tBodyAccJerk-mean()-Y"               
+[55] "tBodyAccJerk-mean()-Z"                "tBodyAccJerk-std()-X"                
+[57] "tBodyAccJerk-std()-Y"                 "tBodyAccJerk-std()-Z"                
+[59] "tBodyAccJerkMag-mean()"               "tBodyAccJerkMag-std()"               
+[61] "tBodyAccMag-mean()"                   "tBodyAccMag-std()"                   
+[63] "tBodyGyro-mean()-X"                   "tBodyGyro-mean()-Y"                  
+[65] "tBodyGyro-mean()-Z"                   "tBodyGyro-std()-X"                   
+[67] "tBodyGyro-std()-Y"                    "tBodyGyro-std()-Z"                   
+[69] "tBodyGyroJerk-mean()-X"               "tBodyGyroJerk-mean()-Y"              
+[71] "tBodyGyroJerk-mean()-Z"               "tBodyGyroJerk-std()-X"               
+[73] "tBodyGyroJerk-std()-Y"                "tBodyGyroJerk-std()-Z"               
+[75] "tBodyGyroJerkMag-mean()"              "tBodyGyroJerkMag-std()"              
+[77] "tBodyGyroMag-mean()"                  "tBodyGyroMag-std()"                  
+[79] "tGravityAcc-mean()-X"                 "tGravityAcc-mean()-Y"                
+[81] "tGravityAcc-mean()-Z"                 "tGravityAcc-std()-X"                 
+[83] "tGravityAcc-std()-Y"                  "tGravityAcc-std()-Z"                 
+[85] "tGravityAccMag-mean()"                "tGravityAccMag-std()"  
+
+
 These variables were generated through the process described in the README file. 
+## More information:
+Additional information about the source of these data their specific properties can be found int hte UCI HAR Dataset, in the activity_labels and features_info.txt files.
 
-## Original Data
-The following informaiton was provided by the original collectors of the data this exercise is based on. 
-
-### Feature Selection 
-
-The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
-
-Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
-
-Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
-
-These signals were used to estimate variables of the feature vector for each pattern:  
-'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
-
-tBodyAcc-XYZ
-tGravityAcc-XYZ
-tBodyAccJerk-XYZ
-tBodyGyro-XYZ
-tBodyGyroJerk-XYZ
-tBodyAccMag
-tGravityAccMag
-tBodyAccJerkMag
-tBodyGyroMag
-tBodyGyroJerkMag
-fBodyAcc-XYZ
-fBodyAccJerk-XYZ
-fBodyGyro-XYZ
-fBodyAccMag
-fBodyAccJerkMag
-fBodyGyroMag
-fBodyGyroJerkMag
-
-The set of variables that were estimated from these signals are: 
-
-mean(): Mean value
-std(): Standard deviation
-mad(): Median absolute deviation 
-max(): Largest value in array
-min(): Smallest value in array
-sma(): Signal magnitude area
-energy(): Energy measure. Sum of the squares divided by the number of values. 
-iqr(): Interquartile range 
-entropy(): Signal entropy
-arCoeff(): Autorregresion coefficients with Burg order equal to 4
-correlation(): correlation coefficient between two signals
-maxInds(): index of the frequency component with largest magnitude
-meanFreq(): Weighted average of the frequency components to obtain a mean frequency
-skewness(): skewness of the frequency domain signal 
-kurtosis(): kurtosis of the frequency domain signal 
-bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
-angle(): Angle between to vectors.
